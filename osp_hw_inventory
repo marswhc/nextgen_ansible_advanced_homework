@@ -1,0 +1,6 @@
+[all:vars]
+GUID=b8a6
+OSP_DOMAIN=blue.osp.opentlc.com
+
+[osphw]
+workstation ansible_host=workstation-"{{ GUID }}"."{{ OSP_DOMAIN }}" ansible_user=cloud-user ansible_ssh_private_key_file=~/.ssh/openstack.pem
