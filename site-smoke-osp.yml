@@ -7,15 +7,18 @@
      cloud: openstack
      server: 'frontend'
     register: result
+    
     tags:
       - osp.smoke
+
+  - debug: msg="{{result}}"
 
   - name: Check webserver for correct response
     uri:
      url: "http://{{item.public_v4}}"
      return_content: yes
     with_items:
-      - "{{ openstack_info.ansible_facts }}"
+      - "{{ result.ansible_facts }}"
     register: webpage
     tags:
       - osp.smoke
