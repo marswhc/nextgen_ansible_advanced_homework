@@ -4,3 +4,6 @@ OSP_DOMAIN=blue.osp.opentlc.com
 
 [osphw]
 workstation ansible_host=workstation-"{{ GUID }}"."{{ OSP_DOMAIN }}" ansible_user=cloud-user ansible_ssh_private_key_file=~/.ssh/openstack.pem
+
+[tierapp]
+54.147.206.145 ansible_user='marswhc-tw.ibm.com' ansible_ssh_private_key_file='~/.ssh/mykey.pem' ansible_ssh_common_args='-o StrictHostKeyChecking=no'
