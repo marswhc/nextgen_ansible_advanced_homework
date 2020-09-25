@@ -17,9 +17,9 @@
     uri:
      url: "http://{{item.public_v4}}"
      return_content: yes
-    with_items:
-      - "{{ result.ansible_facts }}"
-    register: webpage
+#   with_items:
+#     - "{{ result.openstack_servers }}"
+#   register: webpage
     tags:
       - osp.smoke
 
