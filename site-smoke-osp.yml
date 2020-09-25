@@ -11,15 +11,15 @@
     tags:
       - osp.smoke
 
-  - debug: msg="{{result}}"
+  - debug: msg="{{result.openstack_servers}}"
 
   - name: Check webserver for correct response
     uri:
      url: "http://{{item.public_v4}}"
      return_content: yes
-#   with_items:
-#     - "{{ result.openstack_servers }}"
-#   register: webpage
+    with_items:
+      - "{{ result.openstack_servers }}"
+    register: webpage
     tags:
       - osp.smoke
 
