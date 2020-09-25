@@ -28,7 +28,7 @@
     
   - name: Check webserver for correct response
     uri:
-      url: "http://{{item.public_v4}}/ping"
+      url: "http://{{openstack_info.public_v4}}/ping"
       return_content: yes
     until: '"alive" in result.content'
     retries: 10
