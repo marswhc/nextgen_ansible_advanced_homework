@@ -1,5 +1,5 @@
 - hosts: workstation
-  gather_facts: true
+  gather_facts: false
   
   tasks:
   - name: OpenStack servers
@@ -10,27 +10,11 @@
     tags:
       - osp.smoke
 
-#  - name: Curl website
-#    uri:
-#     url: "http://{{item.public_v4}}"
-#     return_content: yes
-#    with_items:
-#      - "{{ openstack_info.openstack_servers }}"
-#    register: webpage
-#    tags:
-#      - osp.smoke
-#  - name: Curl website
-#    shell: curl -s "http://{{item.public_v4}}"
-#    args:
-#      warn: no
-#    tags:
-#      - osp.smoke
-    
   - name: Check webserver for correct response
     uri:
-      url: "http://{{openstack_servers.accessIPv4}}/ping"
+      url: "http://{{item.public_v4}}"
       return_content: yes
-    until: '"alive" in result.content'
+    until: '"Welcome" in result.content'
     retries: 10
     delay: 1
     register: result
