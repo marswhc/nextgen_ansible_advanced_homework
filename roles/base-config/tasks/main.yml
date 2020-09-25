@@ -14,15 +14,6 @@
     dest: /etc/yum.repos.d/open_three-tier-app.repo
     mode: 0644
 
-- name: Add epel repositories 
-  yum_repository:
-    name: epel
-    description: Extra Packages for Enterprise Linux 7
-    file: epel
-    baseurl: http://download.fedoraproject.org/pub/epel/7/$basearch
-    mirrorlist: http://mirrors.fedoraproject.org/metalink?repo=epel-7&arch=$basearch
-    gpgcheck: no
-
 - name: install base tools and packages
   yum:
     name: "{{ item }}" 
