@@ -1,14 +1,14 @@
 ---
-vars:
-  frontend_packages:
+- name: install frontend packages
+  yum:
+    name: "{{ item }}" 
+    state: latest
+  loop:
     - httpie
+    - python-pip
+    - vim
     - haproxy
-      
-- name: Install frontend packages
-  package:
-    name: "{{ frontend_packages }}"
-    state: present
-
+    
 - name: enable haproxy
   service:
     name: haproxy
