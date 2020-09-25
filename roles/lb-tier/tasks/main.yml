@@ -1,4 +1,9 @@
 ---
+vars:
+  frontend_packages:
+    - httpie
+    - haproxy
+      
 - name: Install frontend packages
   package:
     name: "{{ frontend_packages }}"
