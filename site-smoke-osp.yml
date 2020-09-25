@@ -1,5 +1,5 @@
 - hosts: workstation
-  gather_facts: false
+  gather_facts: true
   
   tasks:
   - name: OpenStack servers
@@ -15,7 +15,7 @@
      url: "http://{{item.public_v4}}"
      return_content: yes
     with_items:
-      - "{{ openstack_info.ansible_facts.openstack_servers }}"
+      - "{{ openstack_info.ansible_facts }}"
     register: webpage
     tags:
       - osp.smoke
