@@ -1,5 +1,5 @@
 - hosts: workstation
-  gather_facts: ture
+  gather_facts: true
   
   tasks:
   - name: OpenStack servers
