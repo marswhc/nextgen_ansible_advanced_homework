@@ -19,12 +19,12 @@
 #    register: webpage
 #    tags:
 #      - osp.smoke
-  - name: Curl website
-    shell: curl -s "http://{{item.public_v4}}"
-    args:
-      warn: no
-    tags:
-      - osp.smoke
+#  - name: Curl website
+#    shell: curl -s "http://{{item.public_v4}}"
+#    args:
+#      warn: no
+#    tags:
+#      - osp.smoke
     
   - name: Check webserver for correct response
     uri:
