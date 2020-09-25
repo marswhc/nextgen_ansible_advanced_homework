@@ -15,8 +15,6 @@
     dest: /etc/haproxy/haproxy.cfg
   notify: restart_haproxy
 
-handlers:
-
  - name: restart_haproxy
    service:
      name: haproxy
