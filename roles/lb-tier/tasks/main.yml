@@ -1,34 +1,23 @@
 ---
-  hosts: frontends
-  gather_facts: false 
-  become: true
+- name: Install frontend packages
+  package:
+    name: "{{ frontend_packages }}"
+    state: present
 
-  vars:
-    frontend_packages:
-      - httpie
-      - haproxy
+- name: enable haproxy
+  service:
+    name: haproxy
+    state: started
 
-  tasks:
+- name: configure haproxy
+  template:
+    src: ./templates/haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+  notify: restart_haproxy
 
-    - name: Install frontend packages
-      package:
-        name: "{{ frontend_packages }}"
-        state: present
+handlers:
 
-    - name: enable haproxy
-      service:
-        name: haproxy
-        state: started
-
-    - name: configure haproxy
-      template:
-        src: ./templates/haproxy.cfg.j2
-        dest: /etc/haproxy/haproxy.cfg
-      notify: restart_haproxy
-
-  handlers:
-
-    - name: restart_haproxy
-      service:
-        name: haproxy
-        state: restarted
+ - name: restart_haproxy
+   service:
+     name: haproxy
+     state: restarted
