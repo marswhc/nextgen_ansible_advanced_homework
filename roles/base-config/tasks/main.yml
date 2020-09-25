@@ -9,14 +9,14 @@
     backup: yes
 
 - name: enable repos
-    yum_repository:
-      name: rhel-repo
-      description: “Repo for hosts in testing”
-      baseurl: “http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo”
-      gpgcheck: yes
-      gpgkey: file:///etc/pki/gpg-key 
+  yum_repository:
+    name: rhel-repo
+    description: “Repo for hosts in testing”
+    baseurl: “http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo”
+    gpgcheck: yes
+    gpgkey: file:///etc/pki/gpg-key 
       
 - name: install base tools and packages
-    yum:
-      name: git
-      state: latest
+  yum:
+    name: git
+    state: latest
