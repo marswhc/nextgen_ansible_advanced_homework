@@ -1,7 +1,7 @@
 [all:vars]
 GUID=b8a6
 OSP_DOMAIN=blue.osp.opentlc.com
-tag_AnsibleGroup=b8a6
+tag_AnsibleGroup=394b
 
 [osphw]
 workstation ansible_host=workstation-"{{ GUID }}"."{{ OSP_DOMAIN }}" ansible_user=cloud-user ansible_ssh_private_key_file=~/.ssh/openstack.pem
