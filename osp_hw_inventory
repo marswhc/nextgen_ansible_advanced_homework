@@ -7,5 +7,4 @@ tag_AnsibleGroup=394b
 workstation ansible_host=workstation-"{{ GUID }}"."{{ OSP_DOMAIN }}" ansible_user=cloud-user ansible_ssh_private_key_file=~/.ssh/openstack.pem
 
 [tag_AnsibleGroup_bastions]
-#54.147.206.145 ansible_user='marswhc-tw.ibm.com' ansible_ssh_private_key_file='~/.ssh/mykey.pem' ansible_ssh_common_args='-o StrictHostKeyChecking=no'
-bastion.${tag_AnsibleGroup}.example.opentlc.com ansible_user='marswhc-tw.ibm.com' ansible_ssh_private_key_file='~/.ssh/mykey.pem' ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+bastion.394b.example.opentlc.com ansible_user='marswhc-tw.ibm.com' ansible_ssh_private_key_file='~/.ssh/mykey.pem' ansible_ssh_common_args='-o StrictHostKeyChecking=no'
